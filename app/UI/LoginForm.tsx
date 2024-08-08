@@ -2,6 +2,7 @@
 import React from "react";
 import { useActionState } from 'react';
 import { addN, authenticate } from '@/app/lib/action';
+import Link from 'next/link';
 import {
   AtSymbolIcon,
   KeyIcon,
@@ -72,7 +73,7 @@ const Loginform = () => {
         </div>
           <div className="my-8 flex items-center justify-center space-x-2">
             <p>Don't have an account?</p>
-            <p className="text-indigo-800 font-semibold">signup</p>
+            <Link href={"./signup"} className="text-indigo-800 font-semibold">signup</Link>
           </div>
         </form>
       </div>
