@@ -7,15 +7,17 @@ import {
   AtSymbolIcon,
   KeyIcon,
   ExclamationCircleIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline';
 const Loginform = () => {
   const [errorMessage, formAction, isPending] = useActionState(
     authenticate,
     undefined,
   );
+  
   return (
-    <div className="flex items-center justify-center h-[60vh]">
-      <div className="flex-col items-center justify-center w-[30%] h-24  ">
+    <div className="flex items-center justify-center   h-[40vh]">
+      <div className="flex-col items-center justify-center  h-24  w-[70vh] ">
         <form action={formAction}>
           <div className="flex justify-center my-4 ">
             <h1 className=" font-bold text-4xl text-gray-800 ">
@@ -54,10 +56,15 @@ const Loginform = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-indigo-800 text-white font-medium py-2 px-4 rounded-full hover:bg-indigo-900"
+            className={`w-full bg-indigo-800 text-white font-medium py-2 px-4 rounded-full hover:bg-indigo-900 flex items-center justify-center ${isPending ? 'cursor-not-allowed opacity-50' : ''}`}
             aria-disabled={isPending}
+            disabled={isPending}
           >
-            Login
+            {isPending ? (
+              <ArrowPathIcon className="h-5 w-5 animate-spin mr-2 text-white" />
+            ) : (
+              'Login'
+            )}
           </button>
           <div
           className="flex h-8 items-end space-x-1"
