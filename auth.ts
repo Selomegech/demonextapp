@@ -2,8 +2,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { authConfig } from "./auth.config";
-import { z } from "zod";
-import { use } from "react";
+
 
 export type User = {
   email: string;

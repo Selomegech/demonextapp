@@ -1,36 +1,30 @@
-'use server';
- 
-import { signIn } from '@/auth';
-import { AuthError } from 'next-auth';
- 
+"use server";
+
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
+
 // ...
- 
+
 export async function authenticate(
   prevState: string | undefined,
-  formData: FormData,
-) 
-  
-  {
+  formData: FormData
+) {
   try {
     console.log(formData);
-    
-   return await signIn('credentials', formData,);
+
+    return await signIn("credentials", formData);
   } catch (error) {
-    
     if (error instanceof AuthError) {
       switch (error.type) {
-        case 'CredentialsSignin':
-          return 'Invalid credentials.';
+        case "CredentialsSignin":
+          return "Invalid credentials.";
         default:
-          return 'Something went wrong.';
+          return "Something went wrong.";
       }
     }
     throw error;
   }
 }
-export async function addN(
-    prevState: string | undefined,
-    formData: FormData,
-) {
-    return [1,2,3];
+export async function addN(prevState: string | undefined, formData: FormData) {
+  return [1, 2, 3];
 }

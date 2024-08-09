@@ -1,20 +1,20 @@
 "use client";
 import React from "react";
-import { useActionState } from 'react';
-import { addN, authenticate } from '@/app/lib/action';
-import Link from 'next/link';
+import { useActionState } from "react";
+import { addN, authenticate } from "@/app/lib/action";
+import Link from "next/link";
 import {
   AtSymbolIcon,
   KeyIcon,
   ExclamationCircleIcon,
   ArrowPathIcon,
-} from '@heroicons/react/24/outline';
+} from "@heroicons/react/24/outline";
 const Loginform = () => {
   const [errorMessage, formAction, isPending] = useActionState(
     authenticate,
-    undefined,
+    undefined
   );
-  
+
   return (
     <div className="flex items-center justify-center   h-[40vh]">
       <div className="flex-col items-center justify-center  h-24  w-[70vh] ">
@@ -56,31 +56,35 @@ const Loginform = () => {
           </div>
           <button
             type="submit"
-            className={`w-full bg-indigo-800 text-white font-medium py-2 px-4 rounded-full hover:bg-indigo-900 flex items-center justify-center ${isPending ? 'cursor-not-allowed opacity-50' : ''}`}
+            className={`w-full bg-indigo-800 text-white font-medium py-2 px-4 rounded-full hover:bg-indigo-900 flex items-center justify-center ${
+              isPending ? "cursor-not-allowed opacity-50" : ""
+            }`}
             aria-disabled={isPending}
             disabled={isPending}
           >
             {isPending ? (
               <ArrowPathIcon className="h-5 w-5 animate-spin mr-2 text-white" />
             ) : (
-              'Login'
+              "Login"
             )}
           </button>
           <div
-          className="flex h-8 items-end space-x-1"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {errorMessage && (
-            <>
-              <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-              <p className="text-sm text-red-500">{errorMessage}</p>
-            </>
-          )}
-        </div>
+            className="flex h-8 items-end space-x-1"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {errorMessage && (
+              <>
+                <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+                <p className="text-sm text-red-500">{errorMessage}</p>
+              </>
+            )}
+          </div>
           <div className="my-8 flex items-center justify-center space-x-2">
             <p>Don't have an account?</p>
-            <Link href={"./signup"} className="text-indigo-800 font-semibold">signup</Link>
+            <Link href={"./signup"} className="text-indigo-800 font-semibold">
+              signup
+            </Link>
           </div>
         </form>
       </div>

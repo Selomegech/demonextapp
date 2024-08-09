@@ -4,7 +4,11 @@ interface VerifyProps {
   setSignupCode: (newSignupCode: string) => void;
   verificationData: { success: boolean; message: string } | null;
 }
-const Verify: React.FC<VerifyProps> = ({ setSignupCode, onVerify, verificationData }) => {
+const Verify: React.FC<VerifyProps> = ({
+  setSignupCode,
+  onVerify,
+  verificationData,
+}) => {
   const [verificationCode, setVerificationCode] = useState(["", "", "", ""]);
 
   const [remainingTime, setRemainingTime] = useState(30);
@@ -13,21 +17,25 @@ const Verify: React.FC<VerifyProps> = ({ setSignupCode, onVerify, verificationDa
   const handleVerify = (e: React.FormEvent) => {
     e.preventDefault();
     const verificationCodeNumber = verificationCode.join("");
-    
+
     setSignupCode(verificationCodeNumber);
     console.log(verificationCodeNumber, "typed code");
     console.log(verificationData?.success);
     onVerify(verificationCodeNumber);
-    {verificationData?.success && (
-      <div>
-        <p>{verificationData.message}</p>
-      </div>
-    )}
-    {verificationData?.success === false && (
-      <div>
-        <p>{verificationData.message}</p>
-      </div>
-    )}
+    {
+      verificationData?.success && (
+        <div>
+          <p>{verificationData.message}</p>
+        </div>
+      );
+    }
+    {
+      verificationData?.success === false && (
+        <div>
+          <p>{verificationData.message}</p>
+        </div>
+      );
+    }
   };
 
   const handleResendCode = () => {
@@ -109,9 +117,7 @@ const Verify: React.FC<VerifyProps> = ({ setSignupCode, onVerify, verificationDa
           </button>
         </form>
       </div>
-      
     </div>
-    
   );
 };
 
