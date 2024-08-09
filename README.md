@@ -12,7 +12,7 @@ This project implements user authentication using NextAuth in a NextJS applicati
 
 ## Screenshots
 
-1. [Signup Page](screenshots/2.png)
+1. [screenshots/2.png]
 2. [Signin Page](screenshots/1.png)
 3. [Successful Signup](screenshots/3.png)
 
