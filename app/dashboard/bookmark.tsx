@@ -11,6 +11,7 @@ export default function BookMark({
     token: string;
 }) {
   const [isBooked, setBooked] = useState(isBookmarked);
+
   const toggleBookmark = async () => {
     const url = `https://akil-backend.onrender.com/bookmarks/${id}`;
     try {

@@ -12,6 +12,7 @@ export default async function page1() {
   });
   let data = await response.json();
   data = data.data;
+  console.log(data)
   
   return (
     <Suspense fallback={<div>Loading...</div>}>

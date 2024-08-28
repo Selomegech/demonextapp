@@ -15,6 +15,16 @@ This project implements user authentication using NextAuth in a NextJS applicati
 1. [Signup Page](screenshots/2.png)
 2. [Signin Page](screenshots/1.png)
 3. [Successful Signup](screenshots/3.png)
+If the user haven't logged in initial there will be no bookmark functionality only displaying jobs.
+4. [signedout user](screenshots/8.png)
+
+if the user is logged in the bookmark button will showup and the user should be able to save bookmarks.
+5. [bookmrks showing ](screenshots/7.png)
+
+The following shows jest and cypress tests respectively.
+6. [Successful Signup](screenshots/5.png)
+7. [Successful Signup](screenshots/6.png)
+
 
 ## Technologies Used
 
