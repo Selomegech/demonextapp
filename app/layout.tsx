@@ -1,7 +1,10 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import { Inter } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
+import Test from "./test";
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   weight: ['400', '900'],
@@ -19,6 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      
       <body className={poppins.className}>{children}</body>
     </html>
   )

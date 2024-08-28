@@ -1,13 +1,9 @@
-"use server";
+'use server';
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { authConfig } from "./auth.config";
 
 
-export type User = {
-  email: string;
-  password: string;
-};
 
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
@@ -23,11 +19,11 @@ export const { auth, signIn, signOut } = NextAuth({
 
             body: JSON.stringify(credentials),
           });
-          console.log(user, "user returned from the backend");
-          const data = await user.json();
-          console.log(credentials, "credentails returned from the backend");
-          if (data.success) {
-            return data.data;
+          const res = await user.json();
+
+          console.log(res, "data returned from the backend");
+          if (res.success && res.data) {
+            return res.data;
           }
           return null;
         } catch (error) {

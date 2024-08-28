@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Verify from "../UI/Verify";
+import { useRouter } from 'next/router';
 
 const Page = () => {
   const [signupCode, setSignupCode] = useState("");
@@ -53,13 +54,9 @@ const Page = () => {
     success: boolean;
     message: string;
   } | null>(null);
-  // useEffect(() => {
-  //   const fetchVerificationData = async () => {
-  //     const data = await handleVerify();
-  //     setVerificationData(data);
-  //   };
-  //   fetchVerificationData();
-  // }, []);
+
+  const router = useRouter();
+ 
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -71,9 +68,7 @@ const Page = () => {
         />
       )}
       {isVerified && (
-        <div>
-          <h1>Thank you for verifying your email!</h1>
-        </div>
+        router.push('/page')
       )}
     </div>
   );

@@ -1,18 +1,23 @@
-"use client";
-import { signOut } from "@/auth";
-import React from "react";
+import { auth, signOut } from "/auth";
 
-const page = () => {
+import React, { Suspense } from "react";
+import JobPosts from "./joblist";
+export default async function page1() {
+  const session = await auth();
+  const API_ENDPOINT = "https://akil-backend.onrender.com/opportunities/search";
+  const response = await fetch(API_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${session?.accessToken ? session?.accessToken : ""}`,
+    },
+  });
+  let data = await response.json();
+  data = data.data;
+  
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <div>
-        you are looged in
-        <button onClick={() => signOut()} className="px-4 py-2 bg-slate-900">
-          Sign out
-        </button>
+        <JobPosts token={session?.accessToken} data={data} />
       </div>
-    </>
+    </Suspense>
   );
-};
-
-export default page;
+}

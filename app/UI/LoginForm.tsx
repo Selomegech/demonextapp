@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useActionState } from "react";
-import { addN, authenticate } from "@/app/lib/action";
+import { addN, authenticate } from "/app/lib/action";
 import Link from "next/link";
 import {
   AtSymbolIcon,
@@ -9,12 +9,15 @@ import {
   ExclamationCircleIcon,
   ArrowPathIcon,
 } from "@heroicons/react/24/outline";
-const Loginform = () => {
+import { Session } from "next-auth";
+import { useRouter } from "next/router";
+const Loginform = ({session}:{session:Session}) => {
   const [errorMessage, formAction, isPending] = useActionState(
     authenticate,
     undefined
   );
 
+  
   return (
     <div className="flex items-center justify-center   h-[40vh]">
       <div className="flex-col items-center justify-center  h-24  w-[70vh] ">
@@ -86,6 +89,7 @@ const Loginform = () => {
               signup
             </Link>
           </div>
+          
         </form>
       </div>
     </div>

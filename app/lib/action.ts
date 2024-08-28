@@ -1,7 +1,9 @@
 "use server";
 
-import { signIn } from "@/auth";
+import { signIn } from "/auth";
 import { AuthError } from "next-auth";
+import { redirect } from "next/navigation";
+
 
 // ...
 
@@ -11,10 +13,16 @@ export async function authenticate(
 ) {
   try {
     console.log(formData);
-
-    return await signIn("credentials", formData);
+    
+    return await signIn("credentials", {
+      email: formData.get("email") as string,
+      password: formData.get("password") as string,
+      redirectTo: "/",
+      
+    });
   } catch (error) {
     if (error instanceof AuthError) {
+      console.log(error);
       switch (error.type) {
         case "CredentialsSignin":
           return "Invalid credentials.";
