@@ -1,14 +1,14 @@
-# Akil Authentication Task
+# Akil bookmarking and testing
 
-This project implements user authentication using NextAuth in a NextJS application. It includes signup and signin pages, integrated with the provided API endpoints.
+This project implements testing using jest and cypress. It includes bookmark  pages, integrated with the provided API endpoints.
 
 ## Features
 
-1. **Signup Page**: Designed with a form for name, email, password, and confirm password. Client-side validation and server response handling.
+1. **bookmark page**: Designed with a form for name, email, password, and confirm password. Client-side validation and server response handling.
 
-2. **Signin Page**: Designed with a form for email and password. Client-side validation and authentication flow.
+2. **testing jest**: Designed with a form for email and password. Client-side validation and authentication flow.
 
-3. **Code Structure**: Clean and well-structured, following best practices. Leverages NextJS 14.3 Canary 46 and related technologies.
+3. **testing cypress**: Clean and well-structured, following best practices. Leverages NextJS 14.3 Canary 46 and related technologies.
 
 ## Screenshots
 
@@ -17,16 +17,16 @@ This project implements user authentication using NextAuth in a NextJS applicati
 3. [Successful Signup](screenshots/3.png)
 If the user haven't logged in initial there will be no bookmark functionality only displaying jobs.
 
-4. [signedout user](screenshots/8.png)
+4. [signedout user](screenshots/8.PNG)
 
 if the user is logged in the bookmark button will showup and the user should be able to save bookmarks.
-5. [bookmrks showing ](screenshots/7.png)
-5. [bookmrks showing ](screenshots/7.png)
+5. [bookmrks showing ](screenshots/7.PNG)
+5. [bookmrks showing ](screenshots/7.PNG)
 
 
 The following shows jest and cypress tests respectively.
-6. [tests](screenshots/5.png)
-7. [bokmarks page](screenshots/10.png)
+6. [tests](screenshots/5.PNG)
+7. [bokmarks page](screenshots/10.PNG)
 
 
 ## Technologies Used
